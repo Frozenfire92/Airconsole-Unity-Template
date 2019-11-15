@@ -15,23 +15,23 @@ export default class StateService extends Service {
 
   public handleMessage(state: ScreenToControllerMessage) {
     switch (state.a) {
-      case 0:
+      case ScreenToControllerActions.UpdateState:
         this.state = state.s ?? 0;
         break;
-      case 1:
+      case ScreenToControllerActions.UpdateColor:
         this.myColor = rgbToCSS(state.r, state.g, state.b);
         this.backgroundColor = rgbToCSS(state.bgr, state.bgg, state.bgb);
         break;
-      case 2:
+      case ScreenToControllerActions.UpdateMessage:
         this.message = state.m ?? '';
         break;
-      case 3:
+      case ScreenToControllerActions.UpdateButtons:
         this.canShowHelpButton = state.h ?? false;
         this.canShowSoundButton = state.so ?? false;
         break;
-      case 4:
-        if (state.i === -1) {
-          this.inputOpen = !1;
+      case ScreenToControllerActions.UpdateInput:
+        if (state.i === InputType.Clear) {
+          this.inputOpen = false;
           // if (this.$refs.keyboard) { this.$refs.keyboard.hide(); }
           // if (this.$refs.dpad) { this.$refs.dpad.hide(); }
           // if (this.$refs.clickAndDrag) { this.$refs.clickAndDrag.hide(); }
@@ -39,25 +39,25 @@ export default class StateService extends Service {
         }
         else {
           switch (state.i) {
-            case 0:
+            case InputType.Keyboard:
               // if (this.$refs.keyboard) {
               //   this.$refs.keyboard.show();
               //   this.inputOpen = !0;
               // }
               break;
-            case 1:
+            case InputType.Dpad:
               // if (this.$refs.dpad) {
               //   this.$refs.dpad.show();
               //   this.inputOpen = !0;
               // }
               break;
-            case 2:
+            case InputType.ClickAndDrag:
               // if (this.$refs.clickAndDrag) {
               //   this.$refs.clickAndDrag.show();
               //   this.inputOpen = !0;
               // }
               break;
-            case 3:
+            case InputType.ListSelect:
               // if (this.$refs.listSelect) {
               //   this.$refs.listSelecstate.show(data);
               //   this.inputOpen = !0;

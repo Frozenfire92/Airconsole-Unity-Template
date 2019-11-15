@@ -4,10 +4,10 @@ declare global {
   interface Array<T> extends Ember.ArrayPrototypeExtensions<T> {}
 
   enum InputType {
-    hideInput = -1,
-    keyboard = 0,
-    dpad = 1,
-    clickAndDrag = 2,
+    Clear = -1,
+    Keyboard = 0,
+    Dpad = 1,
+    ClickAndDrag = 2,
     ListSelect = 3,
     Button = 4,
     MultiButton = 5,
@@ -16,11 +16,19 @@ declare global {
     TextDisplayWithButtonButtonBar = 8
   }
 
+  enum ScreenToControllerActions {
+    UpdateState,
+    UpdateColor,
+    UpdateMessage,
+    UpdateButtons,
+    UpdateInput
+  }
+
   interface ScreenToControllerMessage {
     /**
      * action
      */
-    a: number
+    a: ScreenToControllerActions
 
     /**
      * state
@@ -75,7 +83,7 @@ declare global {
     /**
      * input to show
      */
-    i?: number
+    i?: InputType
 
     /**
      * Optional data for input and custom actions
@@ -83,8 +91,33 @@ declare global {
     d?: any
   }
 
-  interface ControllerToScreenMessage {
+  enum ControllerToScreenActions {
+    PressAnywhere,
+    MakeSound,
+    OpenCloseHelp,
+    Input
+  }
 
+  interface ControllerToScreenMessage {
+    /**
+     * action
+     */
+    a: ControllerToScreenActions
+
+    /**
+     * o represents whether the controller wants to open(true) or close(false) the on controller help modal. The screen must actually decide whether this is a valid operation or not. If so change the controller state to 2.
+     */
+    o: boolean
+
+    /**
+     * i
+     */
+    i: InputType
+
+    /**
+     * Optional data for input and custom actions
+     */
+    d?: any
   }
 }
 
