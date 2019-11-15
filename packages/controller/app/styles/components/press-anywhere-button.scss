@@ -1,0 +1,7 @@
+#press-anywhere-button {
+	position: fixed;
+	@include top-right-bottom-left-zero;
+	display: block;
+	width: 100%;
+	height: 100%
+}

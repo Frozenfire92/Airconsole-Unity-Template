@@ -1,0 +1,14 @@
+.flex-row {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
+	justify-content: center
+}
+
+.flex-item {
+	width: initial;
+	height: initial;
+	-webkit-flex: 1 0 24%;
+	flex: 1 0 24%
+}

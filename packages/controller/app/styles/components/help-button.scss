@@ -1,0 +1,19 @@
+#help-button,
+#sound-button {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 3rem;
+	height: 3rem;
+	transition: all .75s ease 0s
+}
+
+#help-button {
+	top: 3rem
+}
+
+#help-button svg,
+#sound-button svg {
+	width: 100%;
+	height: 100%
+}

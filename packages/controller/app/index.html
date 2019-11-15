@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Controller</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {{content-for "head"}}
+
+    <link integrity="" rel="stylesheet" href="{{rootURL}}controller/vendor.css">
+    <link integrity="" rel="stylesheet" href="{{rootURL}}controller/controller.css">
+
+    {{content-for "head-footer"}}
+  </head>
+  <body>
+    {{content-for "body"}}
+
+    <script type="text/javascript" src="https://www.airconsole.com/api/airconsole-1.7.0.js"></script>
+    <script src="{{rootURL}}controller/vendor.js"></script>
+    <script src="{{rootURL}}controller/controller.js"></script>
+
+    {{content-for "body-footer"}}
+  </body>
+</html>

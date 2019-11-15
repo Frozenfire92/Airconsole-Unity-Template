@@ -1,0 +1,56 @@
+.list-select {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	padding-top: 1rem
+}
+
+.list-select h3 {
+	border-bottom: 1px solid #666;
+	padding: 1rem
+}
+
+.list-select ul {
+	list-style: none;
+	padding: 0;
+	text-align: center;
+	overflow: auto;
+	height: calc(100vh - 10rem)
+}
+
+.list-select ul::-webkit-scrollbar {
+	width: 12px
+}
+
+.list-select ul::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+	border-radius: 10px
+}
+
+.list-select ul::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .5)
+}
+
+.list-select ul li {
+	padding: 2rem;
+	border-bottom: 1px solid #666
+}
+
+.list-select ul li.selected {
+	background-color: rgba(0, 0, 0, .25)
+}
+
+.list-select button {
+	width: 100%;
+	padding: 2rem;
+	position: fixed;
+	bottom: 0;
+	background: #fff;
+	border: none
+}
+
+.list-select.outofview button {
+	bottom: 200%
+}

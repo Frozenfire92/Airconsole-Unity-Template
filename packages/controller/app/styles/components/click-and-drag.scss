@@ -1,0 +1,8 @@
+.click-and-drag {
+	position: absolute;
+	@include top-right-bottom-left-zero;
+}
+
+.click-and-drag.outofview {
+	bottom: 100%
+}

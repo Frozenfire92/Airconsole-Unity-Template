@@ -1,0 +1,38 @@
+@import 'variables';
+
+@import 'mixins/top-right-bottom-left';
+
+@import 'utils/flex';
+@import 'utils/functional-classes';
+@import 'utils/modal';
+@import 'utils/reset';
+
+@import 'components/click-and-drag';
+@import 'components/d-pad';
+@import 'components/help-button';
+@import 'components/help-modal';
+@import 'components/keyboard';
+@import 'components/list-select';
+@import 'components/press-anywhere-button';
+@import 'components/sound-button';
+
+// TODO controller-shell?
+#airconsole-controller-app {
+	width: 100%;
+	height: 100%;
+
+  > .title {
+    position: fixed;
+    top: calc(30% - 2.3rem);
+    width: 100%;
+    transition: all .75s ease 0s;
+  }
+
+  > .message {
+    position: fixed;
+    width: 100%;
+    top: calc(50% - 1rem);
+    text-align: center;
+    transition: all .75s ease 0s;
+  }
+}

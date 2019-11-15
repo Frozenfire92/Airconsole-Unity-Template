@@ -1,0 +1,20 @@
+<div id="airconsole-controller-app">
+  {{!-- :style="myColorCssText" :class="{ outofview : !showTitle }" --}}
+  <h1 class="title">
+    {{this.state.title}}
+  </h1>
+
+  {{!--  :style="myColorCssText" :class="{ outofview : !message }" --}}
+  <p class="message">
+    {{this.state.message}}
+  </p>
+
+  <SoundButton />
+  <HelpButton />
+  <PressAnywhereButton />
+  <HelpModal />
+  <Keyboard />
+  <DPad />
+  <ClickAndDrag />
+  <ListSelect />
+</div>
