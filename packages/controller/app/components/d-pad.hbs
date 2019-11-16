@@ -1,22 +1,44 @@
-<div class="direction-pad" class={{unless @show "out-of-view"}}>
+<div class="direction-pad {{unless @show "out-of-view"}}">
   <svg version="1.1" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
-    <g id="up" v-on:touchstart="buttonDown(0)" v-on:touchend="buttonUp(0)" :class="{ pressed : button0Pressed }">
+    <g
+      id="up"
+      {{on 'touchstart' (fn this.buttonPress 0 true)}}
+      {{on 'touchend' (fn this.buttonPress 0 false)}}
+      class={{if this.button0Pressed "pressed"}}
+    >
       <rect x="30" width="30" height="30" style="" />
       <path d="m54.682 23.385h-19.365l9.6825-16.771z" style="" />
     </g>
-    <g id="down" v-on:touchstart="buttonDown(2)" v-on:touchend="buttonUp(2)" :class="{ pressed : button2Pressed }">
+    <g
+      id="down"
+      {{on 'touchstart' (fn this.buttonPress 2 true)}}
+      {{on 'touchend' (fn this.buttonPress 2 false)}}
+      class={{if this.button2Pressed "pressed"}}
+    >
       <rect transform="scale(-1)" x="-60" y="-90" width="30" height="30" />
       <path transform="scale(-1)" d="m-35.318-66.615h-19.365l9.6825-16.771z" />
     </g>
-    <g id="left" v-on:touchstart="buttonDown(3)" v-on:touchend="buttonUp(3)" :class="{ pressed : button3Pressed }">
+    <g id="left"
+      {{on 'touchstart' (fn this.buttonPress 3 true)}}
+      {{on 'touchend' (fn this.buttonPress 3 false)}}
+      class={{if this.button3Pressed "pressed"}}
+    >
       <rect transform="rotate(-90)" x="-60" y="-1.4921e-6" width="30" height="30" />
       <path transform="rotate(-90 12.5 7.5)" d="m-15.318 18.385h-19.365l9.6825-16.771z" />
     </g>
-    <g id="right" v-on:touchstart="buttonDown(1)" v-on:touchend="buttonUp(1)" :class="{ pressed : button1Pressed }">
+    <g id="right"
+      {{on 'touchstart' (fn this.buttonPress 1 true)}}
+      {{on 'touchend' (fn this.buttonPress 1 false)}}
+      class={{if this.button1Pressed "pressed"}}
+    >
       <rect transform="rotate(90)" x="30" y="-90" width="30" height="30" />
       <path transform="rotate(90 71.693 1.6926)" d="m124.68 6.7705-19.365-1e-7 9.6825-16.771z" />
     </g>
-    <g id="center" v-on:touchstart="buttonDown(4)" v-on:touchend="buttonUp(4)" :class="{ pressed : button4Pressed }">
+    <g id="center"
+      {{on 'touchstart' (fn this.buttonPress 4 true)}}
+      {{on 'touchend' (fn this.buttonPress 4 false)}}
+      class={{if this.button4Pressed "pressed"}}
+    >
       <rect x="30" y="30" width="30" height="30" />
       <circle cx="45" cy="45" r="10" />
     </g>

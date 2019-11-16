@@ -43,7 +43,16 @@
     @setup={{this.airconsole.setupAirconsoleKeyboard}}
   />
 
-  {{!-- <DPad @show={{this.state.showDPad}} />
-  <ClickAndDrag @show={{this.state.showClickAndDrag}} @color={{this.state.myColor}} />
-  <ListSelect @show={{this.state.showListSelect}} /> --}}
+  <DPad
+    @show={{this.state.showDPad}}
+    @onPress={{this.dpadPress}}
+  />
+
+  {{!-- <ClickAndDrag @show={{this.state.showClickAndDrag}} @color={{this.state.myColor}} /> --}}
+
+  <ListSelect
+    @show={{this.state.showListSelect}}
+    @data={{this.state.listData}}
+    @onSelect={{this.listItemSelected}}
+  />
 </div>

@@ -1,9 +1,20 @@
 <div class="list-select {{unless @show "out-of-view"}}">
   <h3>Select one:</h3>
-  {{!-- <ul>
-    <li v-for="(item, index) in items" v-on:touchstart="select(index)" :class="{ selected : index === selectedIndex }">
-      {{ item }}
-    </li>
+  <ul>
+    {{log 'wtf' @data}}
+    {{#each @data as |item index|}}
+      <li
+        class={{if (eq index this.selectedIndex) "selected"}}
+        {{on "touchstart" (fn this.select index)}}
+      >
+        {{item}}
+      </li>
+    {{/each}}
   </ul>
-  <button v-on:touchstart="if (selectedIndex !== null) submit()" :disabled="selectedIndex === null">Submit</button> --}}
+  <button
+    disabled={{this.disabled}}
+    {{on "touchstart" this.submit}}
+  >
+    Submit
+  </button>
 </div>

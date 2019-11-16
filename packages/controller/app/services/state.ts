@@ -20,8 +20,14 @@ export default class StateService extends Service {
   @tracked canShowSoundButton = false;
   @tracked myColor = "#FFFFFF";
   @tracked backgroundColor = "#000000";
+  @tracked listData: string[] = ['one', 'two', 'three'];
 
   @service airconsole!: AirconsoleService;
+
+  constructor() {
+    super(...arguments);
+    console.log('StateService', this);
+  }
 
   handleMessage(state: ScreenToControllerMessage) {
     switch (state.a) {
@@ -51,8 +57,14 @@ export default class StateService extends Service {
         else if (state.i !== undefined) {
           this.inputOpen = true;
           this.inputType = state.i;
-          if (state.i === InputType.Keyboard) {
-            this.airconsole.showKeyboard();
+
+          switch (state.i) {
+            case InputType.Keyboard:
+              this.airconsole.showKeyboard();
+              break;
+            case InputType.ListSelect:
+              this.listData = state.d;
+              break;
           }
         }
         break;
