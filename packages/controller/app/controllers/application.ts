@@ -15,8 +15,6 @@ export default class ApplicationController extends Controller {
   constructor() {
     super(...arguments);
     this.airconsole; // trigger the airconsole connection
-    this.state.inputOpen = true;
-    this.state.inputType = InputType.ListSelect;
   }
 
   @action pressAnywhere() {
