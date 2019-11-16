@@ -1,2 +1,5 @@
-{{!--  v-on:touchstart="pressAnywhere()" :class="{ outofview : !showPressAnywhereButton}" --}}
-<div id="press-anywhere-button"></div>
+<div
+  id="press-anywhere-button"
+  class={{unless @show 'out-of-view'}}
+  {{on "touchstart" @onPress}}
+/>

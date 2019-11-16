@@ -1,1 +1,9 @@
-{{yield}}
+<div class="list-select {{unless @show "out-of-view"}}">
+  <h3>Select one:</h3>
+  {{!-- <ul>
+    <li v-for="(item, index) in items" v-on:touchstart="select(index)" :class="{ selected : index === selectedIndex }">
+      {{ item }}
+    </li>
+  </ul>
+  <button v-on:touchstart="if (selectedIndex !== null) submit()" :disabled="selectedIndex === null">Submit</button> --}}
+</div>

@@ -1,13 +1,11 @@
-{{!-- :style="myColorCssBg" class="modal" :class="{ outofview : !showHelpModal }" --}}
-<div id="help-modal">
-  <div class="modal-content">
-    {{!-- v-on:touchstart="closeHelp()" class="modal-close" :style="bgColorCssText" --}}
-    <div>&times;</div>
-    {{!-- :style="bgColorCssText" --}}
+<div
+  class="modal {{unless @show "out-of-view"}}"
+  id="help-modal"
+  style={{@bgColor}}
+>
+  <div class="modal-content" style={{@color}}>
+    <div class="modal-close" {{on "touchstart" @onClose}}>&times;</div>
     <h3 class="modal-title">Help</h3>
-    {{!-- :style="bgColorCssText" --}}
-    <p class="modal-description" >
-      Game description here
-    </p>
+    <p class="modal-description" >Game description here</p>
   </div>
 </div>

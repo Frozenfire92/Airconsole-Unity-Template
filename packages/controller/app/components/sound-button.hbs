@@ -1,6 +1,9 @@
-{{!-- v-on:touchstart="makeSound()" :class="{ outofview : !showSoundButton }" --}}
-<div id="sound-button">
-  <svg id="my-sound-color" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" :fill="myColor">
+<div
+  id="sound-button"
+  class={{unless @show 'out-of-view'}}
+  {{on "touchstart" @onPress}}
+>
+  <svg id="my-sound-color" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill={{@color}}>
     <circle r="40" cx="53" cy="53" fill="#000000" opacity="0.4" />
     <circle r="40" cx="50" cy="50" />
   </svg>

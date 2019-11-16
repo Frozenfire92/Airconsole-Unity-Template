@@ -587,6 +587,15 @@ declare global {
      */
     storeHighScore(level_name: string, level_version: string, score: number, uid?: string | Array<string>, data?: any, score_string?: string): void;
   }
+  class AirConsoleKeyboard {
+    constructor(element_id: string)
+    bind(element_id: string, options: AirConsoleKeyboardBindOptions): void
+    hide(): void
+  }
+  interface AirConsoleKeyboardBindOptions {
+    onHide?: (_input_id: string, text: string) => void
+    onChange?: (_input_id: string, text: string) => void
+  }
 }
 
 type orientation = AirConsoleConstants.ORIENTATION_LANDSCAPE | AirConsoleConstants.ORIENTATION_PORTRAIT;

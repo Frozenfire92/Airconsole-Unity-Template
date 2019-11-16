@@ -20,12 +20,14 @@
   "devDependencies": {
     "@ember/edition-utils": "^1.1.1",
     "@ember/optional-features": "^1.0.0",
+    "@ember/render-modifiers": "^1.0.2",
     "@glimmer/component": "^1.0.0-beta.1",
     "@types/ember": "^3.1.1",
     "@types/ember-qunit": "^3.4.7",
     "@types/ember__test-helpers": "^0.7.9",
     "@types/qunit": "^2.9.0",
     "@types/rsvp": "^4.0.3",
+    "airconsole-keyboard": "git+https://github.com/Frozenfire92/airconsole-keyboard.git#master",
     "babel-eslint": "^10.0.2",
     "broccoli-asset-rev": "^3.0.0",
     "ember-auto-import": "^1.2.20",
@@ -57,5 +59,8 @@
   },
   "engines": {
     "node": "8.* || >= 10.*"
+  },
+  "dependencies": {
+    "lodash.throttle": "^4.1.1"
   }
 }

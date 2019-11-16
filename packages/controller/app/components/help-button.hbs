@@ -1,9 +1,11 @@
-{{!-- v-on:touchstart="openHelp()" :class="{ outofview : !showHelpButton }" --}}
-<div id="help-button" >
-  <svg id="help-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" :fill="myColor">
+<div
+  id="help-button"
+  class={{unless @show 'out-of-view'}}
+  {{on "touchstart" @onPress}}
+>
+  <svg id="help-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill={{@bgColor}}>
     <circle r="40" cx="53" cy="53" fill="#000000" opacity="0.4" />
     <circle r="40" cx="50" cy="50" />
-    {{!-- :fill="backgroundColor" --}}
-    <text x="50" y="62.5" font-size="35" text-anchor="middle">?</text>
+    <text x="50" y="62.5" font-size="35" text-anchor="middle" fill={{@color}}>?</text>
   </svg>
 </div>
