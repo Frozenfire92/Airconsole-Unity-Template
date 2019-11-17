@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+  <title>Controller</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" href="controller/css/app.css">
+</head>
+<body onload="init()">
+  <div id="app"></div>
+  
+  <script type="text/x-template" id="app-component-template">
+    <div id="app" :style="bgColorCssBg">
+      <h1 id="title" :style="myColorCssText" :class="{ outofview : !showTitle }">{{title}}</h1>
+      
+      <p id="message" :style="myColorCssText" :class="{ outofview : !message }">{{message}}</p>
+  
+      <div id="sound-button"  v-on:touchstart="makeSound()" :class="{ outofview : !showSoundButton }">
+        <svg id="my-sound-color" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" :fill="myColor">
+          <circle r="40" cx="53" cy="53" fill="#000000" opacity="0.4"/>
+          <circle r="40" cx="50" cy="50" />
+        </svg>
+      </div>
+      
+      <div id="help-button" v-on:touchstart="openHelp()" :class="{ outofview : !showHelpButton }">
+        <svg id="help-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" :fill="myColor">
+          <circle r="40" cx="53" cy="53" fill="#000000" opacity="0.4"/>
+          <circle r="40" cx="50" cy="50" />
+          <text x="50" y="62.5" font-size="35" :fill="backgroundColor" text-anchor="middle">?</text>
+        </svg>
+      </div>
+      
+      <div id="press-anywhere-button" v-on:touchstart="pressAnywhere()" :class="{ outofview : !showPressAnywhereButton}"></div>
+  
+      <div id="help-modal" :style="myColorCssBg" class="modal" :class="{ outofview : !showHelpModal }">
+        <div class="modal-content">
+          <div v-on:touchstart="closeHelp()" class="modal-close" :style="bgColorCssText">&times;</div>
+          <h3 class="modal-title" :style="bgColorCssText">Help</h3>
+          <p class="modal-description" :style="bgColorCssText">
+            Game description here
+          </p>
+        </div>
+      </div>
+  
+      <airconsole-keyboard ref="keyboard" />
+  
+      <direction-pad ref="dpad" />
+  
+      <click-and-drag 
+        ref="clickAndDrag"
+        v-bind:color="myColor" />
+  
+      <list-select ref="listSelect" />
+    </div>
+  </script>
+
+  <script type="text/x-template" id="airconsole-keyboard-component-template">
+    <div class="airconsole_keyboard_component">
+      <div id="airconsole_keyboard_display" :class="{ outofview : !open }"></div>
+      <div id="airconsole_keyboard"></div>
+    </div>
+  </script>  
+  <script type="text/x-template" id="direction-pad-component-template">
+    <div class="direction-pad" :class="{ outofview : !open }">
+      <svg version="1.1" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+        <g id="up" v-on:touchstart="buttonDown(0)" v-on:touchend="buttonUp(0)" :class="{ pressed : button0Pressed }">
+          <rect x="30" width="30" height="30" style=""/>
+          <path d="m54.682 23.385h-19.365l9.6825-16.771z" style=""/>
+        </g>
+        <g id="down" v-on:touchstart="buttonDown(2)" v-on:touchend="buttonUp(2)" :class="{ pressed : button2Pressed }">
+          <rect transform="scale(-1)" x="-60" y="-90" width="30" height="30" />
+          <path transform="scale(-1)" d="m-35.318-66.615h-19.365l9.6825-16.771z"/>
+        </g>
+        <g id="left" v-on:touchstart="buttonDown(3)" v-on:touchend="buttonUp(3)" :class="{ pressed : button3Pressed }">
+          <rect transform="rotate(-90)" x="-60" y="-1.4921e-6" width="30" height="30" />
+          <path transform="rotate(-90 12.5 7.5)" d="m-15.318 18.385h-19.365l9.6825-16.771z"/>
+        </g>
+        <g id="right" v-on:touchstart="buttonDown(1)" v-on:touchend="buttonUp(1)" :class="{ pressed : button1Pressed }">
+          <rect transform="rotate(90)" x="30" y="-90" width="30" height="30" />
+          <path transform="rotate(90 71.693 1.6926)" d="m124.68 6.7705-19.365-1e-7 9.6825-16.771z"/>
+        </g>
+        <g id="center" v-on:touchstart="buttonDown(4)" v-on:touchend="buttonUp(4)" :class="{ pressed : button4Pressed }">
+          <rect x="30" y="30" width="30" height="30" />
+          <circle cx="45" cy="45" r="10"/>
+        </g>
+      </svg>
+    </div>
+  </script>  
+  <script type="text/x-template" id="click-and-drag-template">
+    <div class="click-and-drag" :class="{ outofview : !open }">
+      <svg width="100%" height="100%" id="swipe-area" xmlns="http://www.w3.org/2000/svg">
+        <line stroke-dasharray="5, 5" id="svg-line" x1="0" y1="0" x2="0" y2="0" stroke="#FFFFFF" stroke-width="2"></line>
+        <circle id="svg-finger" cx="0" cy="0" r="0" stroke="#FFFFFF" stroke-width="2" :fill="color" />
+      </svg>
+    </div>
+  </script>  
+  <script type="text/x-template" id="list-select-template">
+    <div class="list-select" :class="{ outofview : !open }">
+      <h3>Select one:</h3>
+      <ul>
+        <li
+          v-for="(item, index) in items"
+          v-on:touchstart="select(index)"
+          :class="{ selected : index === selectedIndex }"
+        >
+          {{ item }}
+        </li>
+      </ul>
+      <button v-on:touchstart="if (selectedIndex !== null) submit()" :disabled="selectedIndex === null">Submit</button>
+    </div>
+  </script>  
+
+  <script type="text/javascript" src="https://www.airconsole.com/api/airconsole-1.7.0.js"></script>
+  <script type="text/javascript" src="controller/js/lib.js"></script>
+  <script type="text/javascript" src="controller/js/app.js"></script>
+</body>
+
+</html>
