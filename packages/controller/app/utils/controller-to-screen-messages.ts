@@ -1,5 +1,5 @@
 import { ControllerToScreenActions } from "controller/enums/actions";
-import { InputType } from "controller/enums/input-type";
+import { InputType } from "controller/enums/input";
 
 export const pressAnywhere: ControllerToScreenMessage = { a: ControllerToScreenActions.PressAnywhere };
 export const makeSound: ControllerToScreenMessage = { a: ControllerToScreenActions.MakeSound };

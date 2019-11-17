@@ -94,17 +94,18 @@
 }
 
 .airconsole-keyboard-backspace {
-	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 144.51613 138.32259'><g><path id='path5070' d='M 96.342267,49.306727 V 92.532535 H 64.692184 L 43.299072,71.139423 65.424825,49.01367 Z' style='fill:none;stroke:#ffffff;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' /><path id='path5074' d='M 67.84254,60.882452 87.184257,80.224169' style='fill:none;stroke:#ffffff;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' /><path id='path5076' d='M 67.84254,80.150905 87.074361,60.919084' style='fill:none;stroke:#ffffff;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' /></g></svg>");
+	background-image: url("keyboard-back.png");
 	background-repeat: no-repeat;
-	background-size: 70%;
-	background-position: 50% 50%
+	background-size: 120%;
+	background-position: 50% 50%;
 }
 
 .airconsole-keyboard-shift {
-	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 144.51613 138.32259'><g><path d='M 58.326955,97.371247 H 88.332422 V 73.565889 H 100.88573 L 73.02351,45.703669 44.969929,73.75725 h 13.510115 z' style='fill:none;stroke:#ffffff;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none' /></g></svg>");
+	background-image: url("keyboard-shift.png");
 	background-repeat: no-repeat;
 	background-size: contain;
-	background-position: 50% 50%
+  background-position: 50% 50%;
+  background-size: 175%;
 }
 
 #airconsole_keyboard_display.out-of-view {

@@ -1,7 +1,6 @@
 <div class="list-select {{unless @show "out-of-view"}}">
   <h3>Select one:</h3>
   <ul>
-    {{log 'wtf' @data}}
     {{#each @data as |item index|}}
       <li
         class={{if (eq index this.selectedIndex) "selected"}}

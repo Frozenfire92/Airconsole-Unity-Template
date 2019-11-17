@@ -5,7 +5,7 @@ import { action } from '@ember/object';
 import AirconsoleService from 'controller/services/airconsole';
 import StateService from 'controller/services/state';
 import { pressAnywhere, openCloseHelp, makeSound, input } from 'controller/utils/controller-to-screen-messages';
-import { InputType } from 'controller/enums/input-type';
+import { InputType } from 'controller/enums/input';
 
 
 export default class ApplicationController extends Controller {
@@ -35,5 +35,9 @@ export default class ApplicationController extends Controller {
 
   @action listItemSelected(index: number, submitted: boolean) {
     this.airconsole.sendMessageToScreen(input(InputType.ListSelect, { i: index, f: submitted }))
+  }
+
+  @action clickAndDragInput(data: any) {
+    this.airconsole.sendMessageToScreen(input(InputType.ClickAndDrag, data))
   }
 }

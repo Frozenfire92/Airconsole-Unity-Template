@@ -1,6 +1,9 @@
-<div class="click-and-drag" class={{unless @show "out-of-view"}}>
+<div
+  class="click-and-drag {{unless @show "out-of-view"}}"
+  {{did-insert this.setup}}
+>
   <svg width="100%" height="100%" id="swipe-area" xmlns="http://www.w3.org/2000/svg">
     <line stroke-dasharray="5, 5" id="svg-line" x1="0" y1="0" x2="0" y2="0" stroke="#FFFFFF" stroke-width="2"></line>
-    <circle id="svg-finger" cx="0" cy="0" r="0" stroke="#FFFFFF" stroke-width="2" :fill="color" />
+    <circle id="svg-finger" cx="0" cy="0" r="0" stroke="#FFFFFF" stroke-width="2" fill={{@color}} />
   </svg>
 </div>

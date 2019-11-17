@@ -48,7 +48,11 @@
     @onPress={{this.dpadPress}}
   />
 
-  {{!-- <ClickAndDrag @show={{this.state.showClickAndDrag}} @color={{this.state.myColor}} /> --}}
+  <ClickAndDrag
+    @show={{this.state.showClickAndDrag}}
+    @color={{this.state.myColor}}
+    @onInput={{this.clickAndDragInput}}
+  />
 
   <ListSelect
     @show={{this.state.showListSelect}}

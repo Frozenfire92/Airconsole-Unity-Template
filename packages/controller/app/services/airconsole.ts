@@ -1,7 +1,7 @@
 import Service, { inject as service } from '@ember/service';
 import { action } from '@ember/object';
 
-import { InputType } from 'controller/enums/input-type';
+import { InputType } from 'controller/enums/input';
 import StateService from 'controller/services/state';
 import { input } from 'controller/utils/controller-to-screen-messages';
 

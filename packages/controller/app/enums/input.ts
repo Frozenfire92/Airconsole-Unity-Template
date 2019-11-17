@@ -10,3 +10,8 @@ export enum InputType {
   BottomButtonBar = 7,
   TextDisplayWithButtonButtonBar = 8
 }
+
+export enum ClickAndDragInputType {
+  Move,
+  End
+}

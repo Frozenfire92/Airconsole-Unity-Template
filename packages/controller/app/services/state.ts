@@ -3,7 +3,7 @@ import { htmlSafe } from '@ember/string';
 import { tracked } from '@glimmer/tracking';
 
 import { rgbToCSS } from 'controller/utils/color';
-import { InputType } from 'controller/enums/input-type';
+import { InputType } from 'controller/enums/input';
 import { ScreenToControllerActions } from 'controller/enums/actions';
 import { GameState } from 'controller/enums/game-state';
 import AirconsoleService from './airconsole';
@@ -20,7 +20,7 @@ export default class StateService extends Service {
   @tracked canShowSoundButton = false;
   @tracked myColor = "#FFFFFF";
   @tracked backgroundColor = "#000000";
-  @tracked listData: string[] = ['one', 'two', 'three'];
+  @tracked listData: string[] = [];
 
   @service airconsole!: AirconsoleService;
 
@@ -35,8 +35,8 @@ export default class StateService extends Service {
         this.gameState = state.s ?? 0;
         break;
       case ScreenToControllerActions.UpdateColor:
-        this.myColor = rgbToCSS(state.r, state.g, state.b);
-        this.backgroundColor = rgbToCSS(state.bgr, state.bgg, state.bgb);
+        this.myColor = rgbToCSS(state.r ?? 0, state.g ?? 0, state.b ?? 0);
+        this.backgroundColor = rgbToCSS(state.bgr ?? 0, state.bgg ?? 0, state.bgb ?? 0);
         break;
       case ScreenToControllerActions.UpdateMessage:
         this.message = state.m ?? '';
@@ -50,9 +50,6 @@ export default class StateService extends Service {
           this.inputOpen = false;
           this.inputType = state.i;
           this.airconsole.hideKeyboard();
-          // if (this.$refs.dpad) { this.$refs.dpad.hide(); }
-          // if (this.$refs.clickAndDrag) { this.$refs.clickAndDrag.hide(); }
-          // if (this.$refs.listSelect) { this.$refs.listSelecstate.hide(); }
         }
         else if (state.i !== undefined) {
           this.inputOpen = true;

@@ -596,6 +596,15 @@ declare global {
     onHide?: (_input_id: string, text: string) => void
     onChange?: (_input_id: string, text: string) => void
   }
+  class SwipeAnalog {
+    constructor(element: Element | string, options: AirConsoleSwipeAnalogOptions)
+  }
+  interface AirConsoleSwipeAnalogOptions {
+    touchstart?: () => void
+    touchmove?: (event: any) => void
+    touchend?: (event: any) => void
+    min_swipe_distance?: number
+  }
 }
 
 type orientation = AirConsoleConstants.ORIENTATION_LANDSCAPE | AirConsoleConstants.ORIENTATION_PORTRAIT;

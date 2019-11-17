@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import { ControllerToScreenActions, ScreenToControllerActions } from 'controller/enums/actions';
 import { GameState } from 'controller/enums/game-state';
-import { InputType } from 'controller/enums/input-type';
+import { InputType } from 'controller/enums/input';
 
 declare global {
   interface Array<T> extends Ember.ArrayPrototypeExtensions<T> {}
