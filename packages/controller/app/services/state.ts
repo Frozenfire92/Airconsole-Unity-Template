@@ -24,11 +24,6 @@ export default class StateService extends Service {
 
   @service airconsole!: AirconsoleService;
 
-  constructor() {
-    super(...arguments);
-    console.log('StateService', this);
-  }
-
   handleMessage(state: ScreenToControllerMessage) {
     switch (state.a) {
       case ScreenToControllerActions.UpdateState:

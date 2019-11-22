@@ -18,7 +18,7 @@ export default class AirconsoleService extends Service {
   }
 
   airconsole_onMessage(deviceid: number, data: ScreenToControllerMessage) {
-    console.log("message received from airconsole", this, { deviceid: deviceid, data });
+    // console.log("message received from airconsole", this, { deviceid: deviceid, data });
     if (deviceid === AirConsole.SCREEN) {
       if (data.a === 0) { // force state change? set global custom device state? does this tigger oncustomdevicestatechange?
         this.airconsole.setCustomDeviceStateProperty("state", data.s);
@@ -28,14 +28,14 @@ export default class AirconsoleService extends Service {
   }
 
   airconsole_onCustomDeviceStateChange(e: number, data: any) {
-    console.log("onCustomDeviceStateChange_airconsole data", e, data);
+    // console.log("onCustomDeviceStateChange_airconsole data", e, data);
     if (e === AirConsole.SCREEN) {
       this.state.handleCustomDeviceStateChange(data);
     }
   }
 
   sendMessageToScreen(data: ControllerToScreenMessage) {
-    console.log(`SEND TO SCREEN (device:${this.airconsole.getDeviceId()})`, data);
+    // console.log(`sendMessageToScreen (device:${this.airconsole.getDeviceId()})`, data);
     this.airconsole.message(AirConsole.SCREEN, data);
   }
 

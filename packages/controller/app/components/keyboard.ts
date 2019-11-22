@@ -13,7 +13,6 @@ export default class Keyboard extends Component<KeyboardArgs> {
   keyboard!: any;
 
   @action setup(element: Element) {
-    console.log('keyboard setup', element);
     let keyboard = new AirConsoleKeyboard('airconsole_keyboard');
     this.args.setup(keyboard, 'airconsole_keyboard_display', element);
   }

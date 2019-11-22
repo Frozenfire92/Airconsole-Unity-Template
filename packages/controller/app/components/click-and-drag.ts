@@ -37,7 +37,6 @@ export default class ClickAndDrag extends Component<ClickAndDragArgs> {
   }
 
   throttledSendInput = throttle((t: ClickAndDragInputType, swipeVector: any) => {
-    console.log('throttle', t, swipeVector);
     this.sendInput(t, swipeVector);
   }, THROTTLE_TIME, { trailing: false });
 

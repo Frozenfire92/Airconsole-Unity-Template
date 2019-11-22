@@ -81,7 +81,6 @@
       this.fingerRadius = 15;
       this.minSwipeDistance = 20;
       this.throttledSendInput = (0, _lodash.default)((t, swipeVector) => {
-        console.log('throttle', t, swipeVector);
         this.sendInput(t, swipeVector);
       }, THROTTLE_TIME, {
         trailing: false
@@ -247,8 +246,7 @@
     }
 
     buttonPress(i, down) {
-      console.log('dpad button-press', i, down); // Typescript doesn't allow us dynamically string accessing this['string']
-
+      // Typescript doesn't allow us dynamically string accessing this['string']
       switch (i) {
         case 0:
           this.button0Pressed = down;
@@ -426,7 +424,6 @@
     }
 
     setup(element) {
-      console.log('keyboard setup', element);
       let keyboard = new AirConsoleKeyboard('airconsole_keyboard');
       this.args.setup(keyboard, 'airconsole_keyboard_display', element);
     }
@@ -1218,11 +1215,7 @@
     }
 
     airconsole_onMessage(deviceid, data) {
-      console.log("message received from airconsole", this, {
-        deviceid: deviceid,
-        data
-      });
-
+      // console.log("message received from airconsole", this, { deviceid: deviceid, data });
       if (deviceid === AirConsole.SCREEN) {
         if (data.a === 0) {
           // force state change? set global custom device state? does this tigger oncustomdevicestatechange?
@@ -1234,15 +1227,14 @@
     }
 
     airconsole_onCustomDeviceStateChange(e, data) {
-      console.log("onCustomDeviceStateChange_airconsole data", e, data);
-
+      // console.log("onCustomDeviceStateChange_airconsole data", e, data);
       if (e === AirConsole.SCREEN) {
         this.state.handleCustomDeviceStateChange(data);
       }
     }
 
     sendMessageToScreen(data) {
-      console.log("SEND TO SCREEN (device:".concat(this.airconsole.getDeviceId(), ")"), data);
+      // console.log(`sendMessageToScreen (device:${this.airconsole.getDeviceId()})`, data);
       this.airconsole.message(AirConsole.SCREEN, data);
     } // Keyboard
 
@@ -1299,8 +1291,8 @@
   function _initializerWarningHelper(descriptor, context) { throw new Error('Decorating class property failed. Please ensure that ' + 'proposal-class-properties is enabled and runs after the decorators transform.'); }
 
   let StateService = (_class = (_temp = class StateService extends Ember.Service {
-    constructor() {
-      super(...arguments);
+    constructor(...args) {
+      super(...args);
 
       _initializerDefineProperty(this, "title", _descriptor, this);
 
@@ -1327,8 +1319,6 @@
       _initializerDefineProperty(this, "listData", _descriptor12, this);
 
       _initializerDefineProperty(this, "airconsole", _descriptor13, this);
-
-      console.log('StateService', this);
     }
 
     handleMessage(state) {
@@ -1632,7 +1622,7 @@ catch(err) {
 
 ;
           if (!runningTests) {
-            require("controller/app")["default"].create({"name":"controller","version":"0.0.0+b8ab849a"});
+            require("controller/app")["default"].create({"name":"controller","version":"0.0.0+927031e8"});
           }
         
 //# sourceMappingURL=controller.map

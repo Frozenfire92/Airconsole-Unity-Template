@@ -15,7 +15,6 @@ export default class DPad extends Component<DPadArgs> {
   @tracked button4Pressed: boolean = false;
 
   @action buttonPress(i: number, down: boolean) {
-    console.log('dpad button-press', i, down);
     // Typescript doesn't allow us dynamically string accessing this['string']
     switch (i) {
       case 0: this.button0Pressed = down; break;
