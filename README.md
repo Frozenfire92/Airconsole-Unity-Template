@@ -20,8 +20,7 @@ A complete template you can use to make AirConsole games with Unity, controller 
 - Build for usage in Unity:
   - `npm run build`
   - `npm run build:prod` for release
-- Builds will update [WebGLTemplates/AirConsoleDev/controller.html](packages/unity/Assets/WebGLTemplates/AirConsoleDev/controller.html) and [WebGLTemplates/AirConsole/controller](packages/unity/Assets/WebGLTemplates/AirConsole/controller) in the Unity project.
-- You then must play a scene with AirConsole in Unity for the `controller.html` to be copied from the Dev to non Dev folder
+- Builds will update the WebGLTemplate files in the unity project via [script](packages/controller/scripts/unity-pipeline.sh)
 
 ## About
 
