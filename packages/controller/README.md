@@ -1,7 +1,7 @@
-# controller
+# AirConsole Unity Template: Controller
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+The controller for an AirConsole game setup with [AirConsole Unity Template](https://github.com/Frozenfire92/Airconsole-Unity-Template).
+This is an Ember Octane application, with some sane defaults to use as a starting point.
 
 ## Prerequisites
 
@@ -14,8 +14,6 @@ You will need the following things properly installed on your computer.
 
 ## Installation
 
-* `git clone <repository-url>` this repository
-* `cd controller`
 * `npm install`
 
 ## Running / Development
@@ -41,12 +39,11 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ### Building
 
-* `ember build` (development)
-* `ember build --environment production` (production)
+This will copy the built files to the unity package for use with AirCosnole.
+It is recommended to use development builds for easier debugging.
 
-### Deploying
-
-Specify what it takes to deploy your app.
+* `npm run build` (development)
+* `npm run build:prod` (production)
 
 ## Further Reading / Useful Links
 
