@@ -1632,7 +1632,7 @@ catch(err) {
 
 ;
           if (!runningTests) {
-            require("controller/app")["default"].create({"name":"controller","version":"0.0.0+f38d5b13"});
+            require("controller/app")["default"].create({"name":"controller","version":"0.0.0+b8ab849a"});
           }
         
 //# sourceMappingURL=controller.map

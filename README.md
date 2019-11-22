@@ -15,6 +15,7 @@ A complete template you can use to make AirConsole games with Unity, controller 
 
 ## Usage
 
+- `cd packages/controller/`
 - Modify the controller and use the live reload server: `npm start`
 - Build for usage in Unity:
   - `npm run build`

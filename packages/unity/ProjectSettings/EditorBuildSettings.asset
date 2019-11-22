@@ -5,10 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/AirConsole/examples/pong/pong.unity
-    guid: 008d7c2791f9bf44cb399bc2ec4b3f84
+    path: Assets/Scenes/AirConsoleDebug.unity
+    guid: f8ce847103c33dc44b03587287132a6f
   m_configObjects: {}

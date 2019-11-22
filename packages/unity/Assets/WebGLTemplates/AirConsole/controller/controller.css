@@ -353,7 +353,7 @@ ul {
 }
 
 .list-select ul li.selected {
-  background-color: rgba(0, 0, 0, 0.25);
+  background-color: #13a13e;
 }
 
 .list-select button {

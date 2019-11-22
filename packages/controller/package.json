@@ -11,7 +11,8 @@
     "test": "tests"
   },
   "scripts": {
-    "build": "ember build",
+    "build": "ember build && ./scripts/unity-pipeline.sh",
+    "build:prod": "ember build && ./scripts/unity-pipeline.sh",
     "lint:hbs": "ember-template-lint .",
     "lint:js": "eslint .",
     "start": "ember serve",
