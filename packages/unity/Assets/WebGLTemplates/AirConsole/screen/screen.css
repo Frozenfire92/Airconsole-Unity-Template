@@ -1,0 +1,19 @@
+#game {
+  background-image: url('screen/loading-screen.png') !important;
+  background-color: black !important;
+  background-position: 50% 0 !important;
+  background-repeat: no-repeat !important;
+  background-size: contain !important;
+  position: absolute;
+  left: 50%;
+  top: 0%;
+  transform: translate(-50%, 0%);
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  text-align: center;
+  font-family: sans-serif;
+}

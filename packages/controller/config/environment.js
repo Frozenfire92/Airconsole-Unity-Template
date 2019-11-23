@@ -4,9 +4,7 @@ module.exports = function(environment) {
   let ENV = {
     modulePrefix: 'controller',
     environment,
-    rootURL: environment === 'production'
-      ? '/'
-      : '/',
+    rootURL: '',
     locationType: 'hash',
     EmberENV: {
       FEATURES: {
