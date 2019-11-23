@@ -2,6 +2,10 @@
 
 A complete template you can use to make AirConsole games with Unity, controller included.
 
+## About
+
+This is designed to be a framework or template you can use, copy, and modify to quickly get up and running with Unity and AirConsole. The AirConsole "screen" is a Unity project with some common needs implemented. The controller is an Ember Octane Typescript app with common controls and communication taken care of
+
 ## Prerequisites
 
 - Unity (v? 2019+?)
@@ -22,10 +26,6 @@ A complete template you can use to make AirConsole games with Unity, controller 
   - `npm run build:prod` for release
 - Builds will update the WebGLTemplate files in the unity project via [script](packages/controller/scripts/unity-pipeline.sh)
 
-## About
-
-This is designed to be a framework or template you can use, copy, and modify to quickly get up and running with Unity and AirConsole. The AirConsole "screen" is a Unity project with some common needs implemented. The controller is an Ember Octane Typescript app with common controls and communication taken care of
-
 ## Features
 
 - Show users as they join on screen
@@ -39,6 +39,10 @@ This is designed to be a framework or template you can use, copy, and modify to 
   - Press anywhere
   - Click and drag / angles
   - List selection
+
+## Screenshots
+
+See the [Screenshots Directory](screenshots/README.md)
 
 ## Further Reading
 - [AirConsole Unity Documentation](packages/unity/Assets/AirConsole/Documentation_1.7.pdf)
