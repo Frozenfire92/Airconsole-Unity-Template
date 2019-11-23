@@ -291,7 +291,7 @@ public class AirConsoleController : MonoBehaviour
         {
             a = 3,
             h = canShowHelpButton,
-            s = canShowSoundButton
+            so = canShowSoundButton
         };
         if (all) AirConsole.instance.Broadcast(m);
         else AirConsole.instance.Message(device, m);
